@@ -21,7 +21,7 @@ if (navigator.geolocation) {
     );
 }
 
-const map = L.map("map").setView([25.150776, 75.837232], 40);
+const map = L.map("map").setView([25.150776, 75.837232], 10);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "OpenStreetMap"
@@ -33,7 +33,7 @@ socket.on("receive-location", (data) => {
 
     const { id, latitude, longitude } = data;
 
-    map.setView([latitude, longitude], 16);
+    map.setView([latitude, longitude], 10);
 
     if (markers[id]) {
         markers[id].setLatLng([latitude, longitude]);
